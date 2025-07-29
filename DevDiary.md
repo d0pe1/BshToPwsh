@@ -2,3 +2,26 @@
 
 - INIT - This repo has been made as Blueprint so we can scan projectscope.md and Construct the perfect self iterating Project! Glueckauf Robokind!
 - 2025-07-28T11:55Z PlannerAgent generated initial task DAG from projectscope.md
+- a16b76ee-14b4-4dbc-b351-9c13f35e6317 - 2025-07-29T00:31Z Created bootstrap.sh to install PowerShell, Cloudflared, and Git
+- 5312e7de-316d-4424-8d35-a5b1a10fe0d5 - 2025-07-29T00:33Z Added clone_agent_suite.sh
+- d358226d-c11e-4dc4-a700-4657916e3658 - 2025-07-29T00:33Z Milestone bootstrap complete
+- 7cec4d60-20eb-4099-aa9d-0d673def22a5 - 2025-07-29T00:35Z Added tunnel_setup.sh
+- c89cc60d-6f6b-46bb-94d7-db15d60a4779 - 2025-07-29T00:35Z Added session_manager.ps1
+- 3007c5ed-3db3-4b87-a16e-f07ac23e65ef - 2025-07-29T00:35Z Milestone tunnels complete
+- b7ae2b8c-fb9a-4bf9-b871-4d97b7eddbcf - 2025-07-29T00:36Z Added exec_remote.sh
+- bb567b8e-5dc6-4058-8cda-92e2c70d8aad - 2025-07-29T00:36Z Updated exec_remote.sh for JSON output
+- 49fbdceb-36e6-43e0-b4f9-2a153ba5d50d - 2025-07-29T00:36Z Milestone remote exec complete
+- 773dca6b-e5a1-4b6a-9ae0-799d29db2830 - 2025-07-29T00:38Z Added send_file.sh
+- 66d30233-56ef-4cf5-b355-0c286db5d9a3 - 2025-07-29T00:38Z Added get_file.sh
+- 0741a646-e5bf-4b9f-a326-a1b4a536a651 - 2025-07-29T00:38Z Added sync_dir.sh
+- f4e859b6-267c-4e9e-9116-cae33f5e6562 - 2025-07-29T00:38Z Milestone file transfer complete
+- b0dbc675-0b7a-4268-88f8-a96adcda65aa - 2025-07-29T00:39Z Added watchdog.sh
+- 120f8edd-4a1a-4d60-a3c0-a0faa48c5de2 - 2025-07-29T00:39Z Added logger.sh
+- 60efded1-8ac7-4b1f-88df-a61b590bcbd0 - 2025-07-29T00:39Z Added health_endpoint.sh
+- 28a04f9c-de1c-44fd-9071-372f998d4d7e - 2025-07-29T00:39Z Milestone watchdog complete
+- 24c69a60-b31e-4dd8-848b-d5415138e6f4 - 2025-07-29T00:40Z Added multi_host_support.sh
+- 99fc3a91-d367-4e0a-8362-526b080f1d5f - 2025-07-29T00:40Z Added multi_host_support.sh
+- 136085ab-8611-4003-bb9a-b12927505c67 - 2025-07-29T00:40Z Milestone multi-host complete
+- b5512ff0-f7fd-48cf-912c-b6fda9e15f0a - 2025-07-29T00:40Z Updated README capabilities
+- 63675cf5-30d6-4891-a12a-61042475ad85 - 2025-07-29T00:40Z Added auto_diagnose.sh
+- 3612f089-abdc-49f1-877d-1ee46c146d59 - 2025-07-29T00:40Z Milestone documentation complete
