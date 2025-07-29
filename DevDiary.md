@@ -25,3 +25,4 @@
 - b5512ff0-f7fd-48cf-912c-b6fda9e15f0a - 2025-07-29T00:40Z Updated README capabilities
 - 63675cf5-30d6-4891-a12a-61042475ad85 - 2025-07-29T00:40Z Added auto_diagnose.sh
 - 3612f089-abdc-49f1-877d-1ee46c146d59 - 2025-07-29T00:40Z Milestone documentation complete
+- 3612f089-abdc-49f1-877d-1ee46c146d59 - 2025-07-29T17:45Z Expanded README with usage documentation
