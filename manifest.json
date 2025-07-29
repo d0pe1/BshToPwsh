@@ -55,6 +55,18 @@
       "files": [
         "README.md"
       ]
+    },
+    {
+      "uuid": "f7eafc2c-7724-4616-8790-4f1ca8ce6b2c",
+      "files": [
+        "agent_exec.py",
+        "session_manager.ps1",
+        "exec_remote.sh",
+        "auto_diagnose.sh",
+        "watchdog.sh",
+        "taskmap.svg",
+        "README.md"
+      ]
     }
   ]
 }
