@@ -37,3 +37,12 @@ The graph is acyclic; PlannerAgent ensures there are no missing or circular depe
 
 Agents should always update the relevant state files when planning or completing work so that the DAG and Gantt overlay remain accurate.
 
+
+## BshToPwsh Capabilities
+
+- Bootstrap Debian environment with PowerShell, Cloudflared and Git
+- Launch Cloudflare tunnels and maintain persistent PowerShell sessions
+- Execute remote PowerShell commands with normalized JSON output
+- Transfer files and sync directories between Linux and Windows
+- Monitor tunnels with a watchdog and expose a health endpoint
+- Manage multiple targets via a simple tagging system

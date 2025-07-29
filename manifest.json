@@ -11,7 +11,8 @@
     {
       "uuid": "d358226d-c11e-4dc4-a700-4657916e3658",
       "files": [
-        "bootstrap.sh"
+        "bootstrap.sh",
+        "clone_agent_suite.sh"
       ]
     },
     {
@@ -57,4 +58,3 @@
     }
   ]
 }
-
