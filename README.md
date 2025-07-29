@@ -74,7 +74,9 @@ Use `multi_host_support.sh` to register and list host tags:
 ./multi_host_support.sh list
 ```
 
-### Executing Commands
+### Executing Commands (Parallel)
+
+Run a command on multiple hosts concurrently:
 
 ```bash
 ./exec_remote.sh "qa1 qa2" "Get-Service Spooler"
@@ -83,14 +85,22 @@ Use `multi_host_support.sh` to register and list host tags:
 The result is printed as JSON. When multiple hosts are specified, an array of per-host objects is returned.
 
 ### REST API
-Start the REST server with `python3 agent_exec.py` or via `watchdog.sh`. Example usage:
+Start the REST server with `python3 agent_exec.py` or via `watchdog.sh`.
+Common endpoints:
+
+* `POST /exec` – run a command on a target host
+* `POST /send_file` – upload a file
+* `POST /get_file` – download a file
+* `POST /sync_dir` – mirror a directory
+* `GET  /hosts` – list known hosts
+* `GET  /health` – tunnel and session status
+
+Example usage:
 
 ```bash
 curl -X POST http://localhost:5000/exec -H "Content-Type: application/json" \
   -d '{"target": "qa1", "cmd": "Get-Service Spooler"}'
 ```
-
-Other endpoints follow the same pattern: `/send_file`, `/get_file`, `/sync_dir`. Use `GET /hosts` to list known hosts and `GET /health` for status.
 
 ### File Transfer
 
@@ -108,6 +118,8 @@ Other endpoints follow the same pattern: `/send_file`, `/get_file`, `/sync_dir`.
 ### Health Check & Logging
 Run `./health_endpoint.sh` to verify tunnel status.
 Use `./logger.sh "message"` to append entries to `logs/jobs.log`.
+The `watchdog.sh` script keeps tunnels and the REST API running and invokes
+`session_manager.ps1` every 60 seconds for heartbeat checks.
 
 ### Auto Diagnosis
 `auto_diagnose.sh` is a placeholder for ChatGPT-driven retries when network

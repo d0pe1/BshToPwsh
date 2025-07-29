@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280">
 <text x="10" y="15">1. BOOTSTRAP</text><text x="200" y="15">d358226d-c11e-4dc4-a700-4657916e3658</text>
 <text x="10" y="35">2. TUNNELS</text><text x="200" y="35">3007c5ed-3db3-4b87-a16e-f07ac23e65ef</text>
 <text x="10" y="55">3. REMOTE_EXEC</text><text x="200" y="55">49fbdceb-36e6-43e0-b4f9-2a153ba5d50d</text>
@@ -7,4 +7,10 @@
 <text x="10" y="115">6. MULTI_HOST</text><text x="200" y="115">136085ab-8611-4003-bb9a-b12927505c67</text>
 <text x="10" y="135">7. DOCS</text><text x="200" y="135">3612f089-abdc-49f1-877d-1ee46c146d59</text>
 <text x="10" y="155">8. REST_API</text><text x="200" y="155">f7eafc2c-7724-4616-8790-4f1ca8ce6b2c</text>
+<text x="10" y="175">9. AGENT_EXEC</text><text x="200" y="175">29a25464-c91d-4aa6-a715-4ab6e26c5cc1</text>
+<text x="10" y="195">10. SESSION_MGR</text><text x="200" y="195">bb044495-f26d-47d5-bc58-a30612fad872</text>
+<text x="10" y="215">11. PARALLEL_EXEC</text><text x="200" y="215">4635180e-1e7e-4443-8f17-5056334d9597</text>
+<text x="10" y="235">12. AUTO_DIAG</text><text x="200" y="235">70206be2-c6ee-4ef7-bfbd-31e322524e64</text>
+<text x="10" y="255">13. RELIABILITY</text><text x="200" y="255">6a6fe28d-00cd-462d-a4df-8facf46c2467</text>
+<text x="10" y="275">14. DOC_UPDATE</text><text x="200" y="275">4cc3a4e9-3b46-4ab8-aca3-9eb045ded7c4</text>
 </svg>
