@@ -51,7 +51,8 @@ Agents should always update the relevant state files when planning or completing
 
 ### Setup
 1. Run `./bootstrap.sh` to install PowerShell, Cloudflared and Git.
-2. Clone the optional helper tools with `./clone_agent_suite.sh`.
+2. Install the REST server dependency with `pip install flask`.
+3. Clone the optional helper tools with `./clone_agent_suite.sh`.
 
 ### Starting the Cloudflare Tunnel
 1. Place your Cloudflare credentials at `/etc/cloudflared/credentials.json`.
@@ -76,10 +77,20 @@ Use `multi_host_support.sh` to register and list host tags:
 ### Executing Commands
 
 ```bash
-./exec_remote.sh qa1 "Get-Service Spooler"
+./exec_remote.sh "qa1 qa2" "Get-Service Spooler"
 ```
 
-The result is printed as JSON containing `exitCode` and `stdout`.
+The result is printed as JSON. When multiple hosts are specified, an array of per-host objects is returned.
+
+### REST API
+Start the REST server with `python3 agent_exec.py` or via `watchdog.sh`. Example usage:
+
+```bash
+curl -X POST http://localhost:5000/exec -H "Content-Type: application/json" \
+  -d '{"target": "qa1", "cmd": "Get-Service Spooler"}'
+```
+
+Other endpoints follow the same pattern: `/send_file`, `/get_file`, `/sync_dir`. Use `GET /hosts` to list known hosts and `GET /health` for status.
 
 ### File Transfer
 

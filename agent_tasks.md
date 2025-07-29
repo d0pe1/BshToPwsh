@@ -59,3 +59,10 @@
   priority: 4
   status: [x]
 ---
+- uuid: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
+  description: Expand BshToPwsh into REST API with reliability features
+  why: Provide multi-node agent orchestration via HTTP
+  depends_on: [3612f089-abdc-49f1-877d-1ee46c146d59]
+  priority: 5
+  status: []
+---
