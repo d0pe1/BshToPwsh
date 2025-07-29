@@ -2,7 +2,8 @@
 # Task UUID: c89cc60d-6f6b-46bb-94d7-db15d60a4779 / bb044495-f26d-47d5-bc58-a30612fad872
 param(
     [string]$Target,
-    [string]$CredentialFile = "$HOME/.config/bsh2pwsh/cred.xml"
+    [string]$CredentialFile = "$HOME/.config/bsh2pwsh/cred.xml",
+    [switch]$Monitor
 )
 
 $logPath = "logs/sessions.log"
@@ -20,34 +21,47 @@ if (-not (Test-Path $CredentialFile)) {
 $cred = Import-Clixml -Path $CredentialFile
 $session = $null
 
-if (Test-Path $sessionFile) {
-    try {
-        $session = Import-Clixml -Path $sessionFile
-        if (-not (Test-PSSession -Session $session)) {
-            Remove-PSSession -Session $session -ErrorAction SilentlyContinue
+function Ensure-Session {
+    if (Test-Path $sessionFile) {
+        try {
+            $session = Import-Clixml -Path $sessionFile
+            if (-not (Test-PSSession -Session $session)) {
+                Remove-PSSession -Session $session -ErrorAction SilentlyContinue
+                $session = $null
+            }
+        } catch {
             $session = $null
         }
+    }
+
+    if (-not $session) {
+        try {
+            $session = New-PSSession -ComputerName $Target -Credential $cred
+            $session | Export-Clixml -Path $sessionFile
+            Log "Re-established session to $Target"
+        } catch {
+            Log "Failed to establish session to $Target: $_"
+            exit 1
+        }
+    } else {
+        # update timestamp
+        $session | Export-Clixml -Path $sessionFile
+        Log "Session active to $Target"
+    }
+}
+
+function Heartbeat {
+    try {
+        Invoke-Command -Session $session -ScriptBlock { 'pong' } | Out-Null
+        Log "Heartbeat ok for $Target"
     } catch {
+        Log "Heartbeat failed for $Target"
         $session = $null
     }
 }
 
-if (-not $session) {
-    try {
-        $session = New-PSSession -ComputerName $Target -Credential $cred
-        $session | Export-Clixml -Path $sessionFile
-        Log "Re-established session to $Target"
-    } catch {
-        Log "Failed to establish session to $Target: $_"
-        exit 1
-    }
-} else {
-    Log "Session active to $Target"
-}
-
-# Heartbeat update
-try {
-    Invoke-Command -Session $session -ScriptBlock { 'pong' } | Out-Null
-} catch {
-    Log "Heartbeat failed for $Target"
-}
+do {
+    Ensure-Session
+    Heartbeat
+    if ($Monitor) { Start-Sleep -Seconds 60 }
+} while ($Monitor)

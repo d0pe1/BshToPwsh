@@ -64,5 +64,5 @@
   why: Provide multi-node agent orchestration via HTTP
   depends_on: [3612f089-abdc-49f1-877d-1ee46c146d59]
   priority: 5
-  status: []
+  status: [x]
 ---

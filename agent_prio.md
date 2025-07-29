@@ -145,7 +145,7 @@
   why: Provide HTTP interface to remote execution and file management
   depends_on: [63675cf5-30d6-4891-a12a-61042475ad85]
   priority: 5
-  status: []
+  status: [x]
 ---
 - uuid: bb044495-f26d-47d5-bc58-a30612fad872
   parent: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
@@ -153,7 +153,7 @@
   why: Maintain live sessions and record status
   depends_on: [29a25464-c91d-4aa6-a715-4ab6e26c5cc1]
   priority: 5
-  status: []
+  status: [x]
 ---
 - uuid: 4635180e-1e7e-4443-8f17-5056334d9597
   parent: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
@@ -161,7 +161,7 @@
   why: Run commands concurrently across multiple targets
   depends_on: [bb044495-f26d-47d5-bc58-a30612fad872]
   priority: 5
-  status: []
+  status: [x]
 ---
 - uuid: 70206be2-c6ee-4ef7-bfbd-31e322524e64
   parent: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
@@ -169,7 +169,7 @@
   why: Escalate issues and attempt automated recovery
   depends_on: [4635180e-1e7e-4443-8f17-5056334d9597]
   priority: 5
-  status: []
+  status: [x]
 ---
 - uuid: 6a6fe28d-00cd-462d-a4df-8facf46c2467
   parent: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
@@ -177,7 +177,7 @@
   why: Keep REST API and tunnel running reliably
   depends_on: [70206be2-c6ee-4ef7-bfbd-31e322524e64]
   priority: 5
-  status: []
+  status: [x]
 ---
 - uuid: 4cc3a4e9-3b46-4ab8-aca3-9eb045ded7c4
   parent: f7eafc2c-7724-4616-8790-4f1ca8ce6b2c
@@ -185,5 +185,5 @@
   why: Help users adopt new capabilities
   depends_on: [6a6fe28d-00cd-462d-a4df-8facf46c2467]
   priority: 5
-  status: []
+  status: [x]
 ---
