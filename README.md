@@ -46,3 +46,61 @@ Agents should always update the relevant state files when planning or completing
 - Transfer files and sync directories between Linux and Windows
 - Monitor tunnels with a watchdog and expose a health endpoint
 - Manage multiple targets via a simple tagging system
+
+## Usage
+
+### Setup
+1. Run `./bootstrap.sh` to install PowerShell, Cloudflared and Git.
+2. Clone the optional helper tools with `./clone_agent_suite.sh`.
+
+### Starting the Cloudflare Tunnel
+1. Place your Cloudflare credentials at `/etc/cloudflared/credentials.json`.
+2. Launch the tunnel using `./tunnel_setup.sh`.
+3. Keep it running automatically by starting `./watchdog.sh`.
+
+### Establishing PowerShell Sessions
+Prepare a credential XML for each Windows host and call:
+
+```bash
+pwsh -File session_manager.ps1 -Target <host>
+```
+
+### Managing Hosts
+Use `multi_host_support.sh` to register and list host tags:
+
+```bash
+./multi_host_support.sh add qa1 user@10.0.0.5
+./multi_host_support.sh list
+```
+
+### Executing Commands
+
+```bash
+./exec_remote.sh qa1 "Get-Service Spooler"
+```
+
+The result is printed as JSON containing `exitCode` and `stdout`.
+
+### File Transfer
+
+```bash
+./send_file.sh qa1 local.txt C:\\temp\\remote.txt
+./get_file.sh qa1 C:\\temp\\remote.txt downloaded.txt
+```
+
+### Directory Sync
+
+```bash
+./sync_dir.sh qa1 ./localdir C:\\temp\\remotedir
+```
+
+### Health Check & Logging
+Run `./health_endpoint.sh` to verify tunnel status.
+Use `./logger.sh "message"` to append entries to `logs/jobs.log`.
+
+### Auto Diagnosis
+`auto_diagnose.sh` is a placeholder for ChatGPT-driven retries when network
+access is available.
+
+### Testing
+Execute `pytest -q` to run the repository test suite.
